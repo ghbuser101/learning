@@ -14,41 +14,40 @@ var menus = [
 	{"name":"网络管理","order":7,"status":true,"id":"7"},
 	{"name":"磁盘管理","order":5,"status":false,"id":"8"},
 	{"name":"日志管理","order":3,"status":false,"id":"9"}
-];
-console.log(menus);       //空白   
+];   
 
-var menus1 = menus.map(function (menu)
-{return "name: "+ menu.name + "id: "+ menu.id;} 
-);
-console.log(menus1);//ok
+// var menus1 = menus.map(function (menu)
+// {return {"name": menu.name ,"id": menu.id};} 
+// );
+// console.log(menus1);//ok
 
-var menus2 = menus.sort(function(a,b){
-	var v1 = a.order;
-	var v2 = b.order;
-	return v1 - v2;
-});
-console.log(menus2);//空白
+// var menus2 = menus.sort(function(a,b){
+// 	return b.order - a.order;
+// });
+// console.log(menus2);//空白
 
-menus.forEach(
-	function(item){
-		console.log(item);})//ok，不过currentvalue必须是什么意思
+// menus.forEach(
+// 	function(item,index,arr){
+// 		console.log(item);})//ok，不过currentvalue必须是什么意思
 
-var menus4 = menus.filter(function (menu){
-	return menus.name == "管理";
-});
-console.log(menus4);//空白
+// var menus4 = menus.filter(function (menu){
+// 	console.log(menu.status === true)
+// 	return menu.status === true;
+// });
+// console.log(menus4);//空白
 
-var menus5 = menus.every(function(id, index, menu){//这三个咋写？？
-	return menu.id < 10;
-});
-console.log(menus5);//咋就一个false
+// var menus5 = menus.every(function(item){//这三个咋写？？
+// 	console.log(item.name,item.name.includes("管理"));
+// 	return item.name.includes("管理") ;
+// });
+// console.log(menus5);//咋就一个false
 
-function id8(element, index, menus){
-	return menus.id = 8;
-};
-var menus6 = menus.some(id8);
-console.log(menus6);//ok
-console.log(menus.some(id8));//ok
+// function id8(element, index, menus){
+// 	return menus.id = 8;
+// };
+// var menus6 = menus.some(id8);
+// console.log(menus6);//ok
+// console.log(menus.some(id8));//ok
 
 
 /*function id08(arr, Val){
@@ -56,36 +55,37 @@ console.log(menus.some(id8));//ok
 };
 console.log(id08(menus.id, 8));这个方法是不是单一元素才能用呀*/
 var initialvalue = 0;
-var menus7 = menus.reduce(function(accumulator, currentValue) {
-	return accumulator + currentValue.id;
-},initialvalue);
+var menus7 = menus.reduce(function(menu1, menu2) {
+	console.log(parseInt(menu1.order),parseInt(menu2.order))
+	return parseInt(menu1.order)+parseInt(menu2.order)
+});
 console.log(menus7);
 
-var menus8 =  menus.push("name:系统管理","order:11","status:false","id:13");
-console.log(menus8);//为什么只出现了13啊！！哦是长度啊
+// var menus8 =  menus.push("name:系统管理","order:11","status:false","id:13");
+// console.log(menus8);//为什么只出现了13啊！！哦是长度啊
 
-var menus9 =  menus.pop();
-console.log(menus9);//只剩下id13了
+// var menus9 =  menus.pop();
+// console.log(menus9);//只剩下id13了
 
-var menus10 =  menus.unshift ("name:运维监控","order:13","status:false","id:15");
-console.log("menus10:" + menus10);
+// var menus10 =  menus.unshift ("name:运维监控","order:13","status:false","id:15");
+// console.log("menus10:" + menus10);
 
-var menus11 =  menus.shift();
-console.log("menus11:" + menus11);
+// var menus11 =  menus.shift();
+// console.log("menus11:" + menus11);
 
-console.log(Array.isArray(menus));
+// console.log(Array.isArray(menus));
 
-var menus13s =  [1,2,3,4,5];
-var menus13 = menus.concat(menus13s);
-console.log("menus13:" + menus13);
+// var menus13s =  [1,2,3,4,5];
+// var menus13 = menus.concat(menus13s);
+// console.log("menus13:" + menus13);
 
-var menus14 = menus13s.join("+");
-console.log("menus14:" + menus14);
+// var menus14 = menus13s.join("+");
+// console.log("menus14:" + menus14);
 
-var menus151 = menus13s.slice(1,5);//保留1之后到第五个。
-var menus152 = menus13s.splice(0,1);//删除0之后的1个数。
-console.log("menus151:" + menus151);
-console.log("menus152:" + menus152);
+// var menus151 = menus13s.slice(1,5);//保留1之后到第五个。
+// var menus152 = menus13s.splice(0,1);//删除0之后的1个数。
+// console.log("menus151:" + menus151);
+// console.log("menus152:" + menus152);
 /*
 
 14. join： 将[1,2,3,4,5]转换为字符串"1+2+3+4+5"
